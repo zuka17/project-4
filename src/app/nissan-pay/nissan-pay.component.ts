@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nissan-pay',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './nissan-pay.component.html',
-  styleUrl: './nissan-pay.component.scss'
+  styleUrl: './nissan-pay.component.scss',
 })
-export class NissanPayComponent {
-
-}
+export class NissanPayComponent {}
