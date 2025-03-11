@@ -1,16 +1,46 @@
 <div class="box">
-  <form>
+  <form [formGroup]="payForm">
     <div class="mb-3">
       <label for="email">write your email</label>
-      <input type="text" class="form-control" id="email" />
+      <input
+        type="text"
+        formControlName="email"
+        class="form-control"
+        id="email"
+      />
+      @if(emailControl.touched&& emailControl.hasError('required')){
+      <app-error message="this field is requerd"> </app-error>
+      }@else if(emailControl.touched&& emailControl.hasError('email')){
+      <app-error message="must be in email style  "> </app-error>
+      }
     </div>
     <div class="mb-3">
       <label for="firstname">write your firstname</label>
-      <input type="text" class="form-control" id="firstname" />
+      <input
+        type="text"
+        formControlName="firstname"
+        class="form-control"
+        id="firstname"
+      />
+      @if(firstnameControl.touched && firstnameControl.hasError('required')){
+      <app-error [message]="'this field is requerd'"> </app-error>
+      }@else if (firstnameControl.touched &&
+      firstnameControl.hasError('minlength')) {
+      <app-error message="Username must contain min 3 "> </app-error>}
     </div>
     <div class="mb-3">
       <label for="lastname">write your lastname</label>
-      <input type="text" class="form-control" id="lastname" />
+      <input
+        type="text"
+        formControlName="lastname"
+        class="form-control"
+        id="lastname"
+      />
+      @if(lastnameControl.touched&& lastnameControl.hasError('required')){
+      <app-error message="this field is requerd"> </app-error>
+      }@else if(lastnameControl.touched&&
+      lastnameControl.hasError('minlength')){
+      <app-error message="Username must contain min 3"> </app-error>}
     </div>
     <div class="mb-3">
       <label for="telephone">write your telephone number</label>
@@ -30,7 +60,9 @@
     </div>
     <p class="lightgreenyelow">this will be $ 1500</p>
     <div class="flex">
-      <button routerLink="/main-page" class="btn btn-secondary">go to home</button>
+      <button routerLink="/main-page" class="btn btn-secondary">
+        go to home
+      </button>
       <button routerLink="/main-page" class="btn btn-primary">pay</button>
     </div>
   </form>
